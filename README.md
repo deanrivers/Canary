@@ -1,8 +1,9 @@
 <h1>READ ME</h1>
 
 <h2>In order to run this application please do the following:</h2><br>
-1. In the root directory of this project, run the command "node server.js"<br>
-2. In the root directory of this project, run the command "npm start"<br>
+1. In the root directory, run "npm install" to install all dependencies for this project.<br>
+2. In the root directory of this project, run the command "node server.js"<br>
+3. In the root directory of this project, run the command "npm start"<br>
 
 The two above steps should be done in two seperate terminals so they can run simultaneously.<br>
 
