@@ -120,6 +120,7 @@ opacity: 0.5;
   box-shadow: 1px 1px 15px 1px #ccc;
   border-radius: 15px;
   overflow: auto;
+  margin-top: 5%;
 }
 
 .details-children{
