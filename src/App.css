@@ -1,33 +1,362 @@
-.App {
+body{
+  width: 100%;
+  height: 100%;
+  background: rgb(235, 235, 235);
+  /* background: rgb(81, 81, 81); */
+  font-family: 'Roboto', sans-serif !important;
+}
+
+#nav{
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  margin: 0 auto;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 10px 0px #ccc;
+  top: 0;
+  z-index: 100;
+  background: white;
+}
+
+#nav img{
+  height: 30px;
+}
+
+#device-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  margin-top: 10%;
+  position: relative;
+}
+
+.device-content-container{
+  width: 300px;
+  height: 300px;
+  background: white;
+  margin: 20px;
+  box-shadow: 0px 3px 7px 1px #ababab;
+}
+
+.device-header{
+  background: rgb(255, 255, 255);
+  color: black;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#add-button-container{
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#add-button{
+  background: #8B9CA5;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 120px;
+  height: 40px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#add-button:hover{
+  background: rgb(175, 197, 208);  
+}
+
+#add-button-container img{
+  max-width: 50px;
+  margin-bottom: 1%;
+}
+
+#nav-flex{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.settings-image{
+  height: 60%;
+  padding: 10px;
+  color: black;
+  opacity: 1;
+  transition: 0.3s;
+  float: right;
+}
+.settings-image:hover{
+  color: #ccc;
+  filter: hue-rotate(180deg);
+-webkit-filter: hue-rotate(180deg);
+opacity: 0.5;
+}
+
+#details-main-container{
+  height: 100%;
+  width: 100%;
+  /* background: red; */
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+}
+
+#details-sub-container{
+  background: rgb(255, 255, 255);
+  width: 600px;
+  height: 600px;
+  box-shadow: 1px 1px 15px 1px #ccc;
+  border-radius: 15px;
+  overflow: auto;
+}
+
+.details-children{
+  position: relative;
+  margin: 30px;
+  overflow: auto;
+  padding: 10px;
+ 
+}
+
+.activeRoute{
+  border-bottom: 3px solid rgb(0, 118, 110);
+}
+
+.settings-container{
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+#device-flex-container-children{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.settings-popup-active{
+  background: rgb(255,255,255,0.9);
+  position: absolute;
+  height: 300px;
+  display: block;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: -webkit-fill-available;
+  flex-direction: column;
+  margin: 20px;
+}
+.settings-popup-inactive{
+  display: none;
+}
+.settings-popup-active p{
+  margin: 0 auto;
+}
+
+.remove-button-container{
+  width: 100%;
+  bottom: 20px;
+  position: absolute;
+}
+.remove-button{
+  background: rgb(245, 105, 105);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.remove-button:hover{
+  background: rgb(235, 162, 162);
+}
+
+.close-button-container{
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.close-button{
+  border-radius: 100px;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  outline: none;
+  border: none;
+  background: #8B9CA5;
+  color: white;
+  transition: 0.2s;
+}
+
+.close-button:hover{
+  background: rgb(175, 197, 208); ;
+}
+
+.settings-component-container{
+  position: relative;
+  height: 100%;
+}
+
+#add-device-modal-active{
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+  animation: modalPopIn;
+  animation-duration: 0.7s;
+  overflow: hidden;  
+}
+
+#add-device-modal-inactive{
+  display: none;
+}
+
+#modal-content{
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  animation: modalContentPopIn;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  transform: translateY(-60px);
+}
+
+#modal-content input{
+  text-align: center;
+  outline: none;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  border: 1px solid #ccc;
+}
+
+#modal-inputs{
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 50px;
+}
+
+#submit-modal-button{
+  background: #8B9CA5;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   color: white;
+  width: 120px;
+  height: 40px;
+  outline: none;
+  transition: 0.3s;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+#submit-modal-button:hover{
+  background: rgb(175, 197, 208);  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#modal-cancel-button{
+  background: rgb(245, 105, 105);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  outline: none;
+  transition: 0.3s;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#modal-cancel-button:hover{
+  background: rgb(235, 162, 162);
+}
+
+a{
+  text-decoration: none;
+}
+
+.device-image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+.device-image{
+  max-height:200px;
+}
+
+hr{
+  width: 90%;
+  border: 1px solid #8B9CA5;
+}
+
+
+.apexcharts-canvas{
+  margin: 0 auto;
+}
+
+#modal-dropdown{
+  width: 100px;
+  height: 30px;
+  border: none;
+  background: white;
+  box-shadow: 1px 1px 1px 1px #ccc;
+  outline: none;
+}
+.apexcharts-datalabels-group{
+  display: none;
+}
+/* animations */
+@keyframes modalPopIn {
+  from {background: rgba(0,0,0,0.0);}
+  to {background: rgba(0,0,0,0.7);}
+}
+@keyframes modalContentPopIn {
+  0% {
+     transform: translateY(-1000px);
   }
-  to {
-    transform: rotate(360deg);
+  70%{
+      opacity: 1;
+      transform: translateY(50px);
+  }
+  100% {        
+      transform: translateY(-60px);
   }
 }
+
+
