@@ -62,7 +62,7 @@ class App extends Component {
     } else if(type === "humidity"){
       value = Math.floor(Math.random()*100)
     } else{
-      value = Math.floor(Math.random()*500)
+      value = Math.floor(Math.random()*100)
     }
 
     console.log(value)

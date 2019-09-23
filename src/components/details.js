@@ -40,6 +40,9 @@ class Details extends Component {
 
                             {/* humidity */}
                             {i['type'] === 'humidity' ? <div className="humidity"><h2>Humidity (%)</h2><h2>{i['value']}</h2></div>:null}
+                           
+                            {/* air quality*/}
+                            {i['type'] === 'air quality' ? <div className="air-quality"><h2>Air Quality (0-100)</h2><h2>{i['value']}</h2></div>:null}
                             <div className="chart-container">
                                 <Chart
                                     options={this.state.options}
