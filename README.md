@@ -7,4 +7,4 @@
 1. There will be one type of measurement made for each new device with a randomly generated value. In the real world, devices should be detected when "adding" a device instead of being manually entered by the user with measurements and the type of device.<br>
 <br>
 
-<i>P.S... I created my own API endpoint to demonstrate POST (something is fishy which I am looking into).</i> 
+<i>P.S... I created my own API endpoint to demonstrate POST (something is fishy with how I was attempting to post to the heroku endpoint which was provided. I am looking into this).</i> 
